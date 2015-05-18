@@ -15,4 +15,12 @@ router.post('/', function (req, res) {
     });
 });
 
+router.get('/', function (req, res) {
+   Contact.find(function (err, results) {
+       // todo: return only the first 10 results and paginate service ...
+       if (err) res.status(500).json({message: 'Something went wrong!'});
+       res.status(200).json(results);
+   });
+});
+
 module.exports = router;

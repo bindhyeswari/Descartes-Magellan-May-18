@@ -8,3 +8,22 @@
 http://mongoosejs.com/
 http://mongoosejs.com/docs/documents.html
 http://docs.mongodb.org/manual/applications/crud/
+
+Homework
+
+Create an image sprite for icons and change the background of a div based on the icon selected
+from a drop down
+
+Write a script that allows the user to select an image file and provides a data uri (display inside a div)
+
+Demonstrate the usage of pace
+http://github.hubspot.com/pace/docs/welcome/
+
+NodeJS
+
+Uniform Interface - CRUD 
+Given a Mongoose Model, create a CRUD endpoint for the resource
+
+expires, cache-control, etag, last-modified
+request --> if-none-match, if-modified-since
+

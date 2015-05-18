@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+var myrest = require('./modules/rest_uniform');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -25,7 +26,19 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
-app.use('/contacts', require('./routes/contacts'));
+app.use('/contacts', myrest.uniformCRUD(mongoose.model('contact', {
+  name: String,
+  email: {
+    required: true,
+    type: String
+  }
+})));
+app.use('/cars', myrest.uniformCRUD(mongoose.model('car', {
+  make: String,
+  model: String
+})));
+
+
 mongoose.connect('mongodb://localhost/test', function (err) {
   if (err) console.error('Could not connect to databse ... ');
   else console.info('Connected to database!');

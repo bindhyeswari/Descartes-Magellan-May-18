@@ -6,3 +6,5 @@
 6. connect to mongoose
 
 http://mongoosejs.com/
+http://mongoosejs.com/docs/documents.html
+http://docs.mongodb.org/manual/applications/crud/

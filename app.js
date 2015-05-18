@@ -24,6 +24,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/contacts', require('./routes/contacts'));
+mongoose.connect('mongodb://localhost/test', function (err) {
+  if (err) console.error('Could not connect to databse ... ');
+  else console.info('Connected to database!');
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

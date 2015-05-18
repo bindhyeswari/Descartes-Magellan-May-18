@@ -23,4 +23,30 @@ router.get('/', function (req, res) {
    });
 });
 
+router.get('/:id', function (req, res) {
+    Contact.findById(req.params.id, function (err, results) {
+        // todo: return only the first 10 results and paginate service ...
+        if (err) res.status(500).json({message: 'Something went wrong!'});
+        res.status(200).json(results);
+    });
+});
+
+router.put('/:id', function (req, res) {
+    Contact.findByIdAndUpdate(req.params.id, {
+        $set: req.body
+    },function (err, results) {
+        // todo: return only the first 10 results and paginate service ...
+        if (err) res.status(500).json({message: 'Something went wrong!'});
+        res.status(200).json({ message: 'Updated!' });
+    });
+});
+
+router.delete('/:id', function (req, res) {
+    Contact.findByIdAndRemove(req.params.id, function (err, results) {
+        // todo: return only the first 10 results and paginate service ...
+        if (err) res.status(500).json({message: 'Something went wrong!'});
+        res.status(200).json(results);
+    });
+});
+
 module.exports = router;
